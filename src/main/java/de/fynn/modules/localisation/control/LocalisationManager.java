@@ -31,10 +31,16 @@ public class LocalisationManager {
     }
 
     public String localize(Extension clientApplication, String stringIdentifier, Player player){
-        return this.clientApplicationLocaleRegisterHashMap.get(clientApplication)
-                .getApplicationLocalisationContainer(
-                PlayerLocaleManager.getPlayerLocale(player)
-                ).getLocalizedString(stringIdentifier);
+        return
+                (PlayerLocaleManager.getPlayerLocale(player) != null) ?
+
+                this.clientApplicationLocaleRegisterHashMap.get(clientApplication)
+                        .getApplicationLocalisationContainer(
+                        PlayerLocaleManager.getPlayerLocale(player))
+                        .getLocalizedString(stringIdentifier) :
+                this.clientApplicationLocaleRegisterHashMap.get(clientApplication)
+                        .getApplicationLocalisationContainer(Locale.GERMAN)
+                        .getLocalizedString(stringIdentifier);
     }
 
 }

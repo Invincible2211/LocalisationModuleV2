@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "de.fynn.localisation"
+group = "de.fynn.modules.localisation"
 version = "1.0-SNAPSHOT"
 
 repositories {
